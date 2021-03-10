@@ -4,11 +4,12 @@ import java.util.ArrayList;
 
 public class FourBallsOOP extends PApplet {
 
-    public static final int WIDTH = 1280;
-    public static final int HEIGHT = 720;
-    public static final int DIAMETER = 20;
-    public static final float FRACTION = 0.2f;
-    ArrayList<Ball> balls = new ArrayList<>();
+    private static final int WIDTH = 1280;
+    private static final int HEIGHT = 720;
+    private static final int DIAMETER = 20;
+    private static final float FRACTION = 0.2f;
+    private final ArrayList<Ball> BALLS = new ArrayList<>();
+    final int NUMBER_OF_BALLS = 4;
 
     public static void main(String[] args) {
         PApplet.main("FourBallsOOP", args);
@@ -22,14 +23,14 @@ public class FourBallsOOP extends PApplet {
 
     @Override
     public void setup() {
-        for (int ball = 1; ball <= 4; ball++) {
-            balls.add(new Ball(this, getHeight(ball), ball, DIAMETER));
+        for (int ball = 1; ball <= NUMBER_OF_BALLS; ball++) {
+            BALLS.add(new Ball(this, getHeight(ball), ball, DIAMETER));
         }
     }
 
     @Override
     public void draw() {
-        for (Ball ball : balls) {
+        for (Ball ball : BALLS) {
             ball.drawCircle();
         }
     }
