@@ -2,7 +2,7 @@ import processing.core.PApplet;
 
 import java.util.ArrayList;
 
-public class FourBallsOOP extends PApplet {
+public class BallProcessing extends PApplet {
 
     private static final int WIDTH = 1280;
     private static final int HEIGHT = 720;
@@ -12,7 +12,7 @@ public class FourBallsOOP extends PApplet {
     final int NUMBER_OF_BALLS = 4;
 
     public static void main(String[] args) {
-        PApplet.main("FourBallsOOP", args);
+        processing.core.PApplet.main("BallProcessing", args);
     }
 
     @Override
@@ -24,14 +24,15 @@ public class FourBallsOOP extends PApplet {
     @Override
     public void setup() {
         for (int ball = 1; ball <= NUMBER_OF_BALLS; ball++) {
-            BALLS.add(new Ball(this, getHeight(ball), ball, DIAMETER));
+            BALLS.add(new Ball(getHeight(ball), ball, DIAMETER));
         }
     }
 
     @Override
     public void draw() {
         for (Ball ball : BALLS) {
-            ball.drawCircle();
+            ball.draw(this);
+            ball.move();
         }
     }
 
